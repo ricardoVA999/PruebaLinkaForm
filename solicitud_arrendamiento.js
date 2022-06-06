@@ -10,6 +10,7 @@ let userName = null;
 let userParentId = null;
 let scriptId = null;
 let scriptParamId = 85036;
+let areaParam = null;
 
 
 $('#divOptions').hide();
@@ -31,6 +32,10 @@ window.onload = function(){
     if (key === 'param_id' ){
       console.log('param_id', key)
       scriptParamId = parseInt(qs[key]);
+    }
+    if (key === 'area' ){
+      console.log('area', key)
+      areaParam = qs[key];
     }
     if (key === 'env') {
       if (qs[key] === 'test'){
@@ -269,6 +274,7 @@ function getFirstElement(month, piloto, placa, date_from, date_to){
       placa: placa,
       date_from: date_from,
       date_to: date_to,
+      area: areaParam
     }),
     headers:{
       'Content-Type': 'application/json',
