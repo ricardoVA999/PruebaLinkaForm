@@ -140,7 +140,7 @@ const loading = document.querySelector('.loading-container');
 loading.style.display = 'none';
 
 
-function getAreas(){
+function getUserId(){
   console.log('get', scriptParamId)
 
   fetch(url + 'infosync/scripts/run/', {
@@ -197,13 +197,9 @@ function getAreas(){
 
 
 function runFirstElement(){
-  let month = document.getElementById("month");
-  let Area = document.getElementById("Areas");
-  let Usuario = document.getElementById("Usuarios");
-  let date_from = document.getElementById("date_from");
-  let date_to = document.getElementById("date_to");
-  firstElement =getFirstElement( month.value, Area.value,
-    Usuario.value, date_from.value, date_to.value );
+  let Area = document.getElementById("Area");
+  let Usuario = document.getElementById("Usuario");
+  firstElement =getFirstElement(Area.value, Usuario.value);
 };
 
 function getParameters(){
@@ -248,7 +244,7 @@ function getParameters(){
   })
 };
 
-function getFirstElement(month, Area, Usuario, date_from, date_to){
+function getFirstElement(Area, Usuario){
   //---Hide style
   $("#divContent").hide();
   $('.load-wrapp').show();
@@ -259,12 +255,8 @@ function getFirstElement(month, Area, Usuario, date_from, date_to){
     method: 'POST',
     body: JSON.stringify({
       script_id: scriptId,
-      month: month,
       Area: Area,
       Usuario: Usuario,
-      date_from: date_from,
-      date_to: date_to,
-      area: areaParam
     }),
     headers:{
       'Content-Type': 'application/json',
