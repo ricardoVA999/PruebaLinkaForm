@@ -27,7 +27,7 @@ def query_data(form_id, Area, Usuario):
     if Area:
         match_query.update({'answers.60007c5194d9a63b1caf534c.60007ca59253268e682b8760':Area})
     if Usuario:
-        match_query.update({'answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f':Usuarios})
+        match_query.update({'answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f':Usuario})
 
     else:
         project = {
